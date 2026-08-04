@@ -1,0 +1,25 @@
+{
+  "name": "chainsight-demo-shop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Demo storefront API used to show ChainSight. Do not npm install: the lock file contains known-malicious entries on purpose.",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "4.16.0",
+    "lodash": "4.17.15",
+    "event-stream": "3.3.4",
+    "jsonwebtoken": "8.5.0",
+    "axios": "0.21.0",
+    "bufferutil": "4.0.1",
+    "moment": "2.29.1",
+    "marked": "0.3.6"
+  },
+  "devDependencies": {
+    "mocha": "5.2.0",
+    "esbuild": "0.14.0",
+    "handlebars": "4.0.11"
+  },
+  "scripts": {
+    "start": "node src/server.js"
+  }
+}
