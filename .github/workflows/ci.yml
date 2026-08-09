@@ -1,0 +1,16 @@
+# Typical CI: installs dependencies with a registry token available.
+# Manual trigger only in this demo repo, so the planted malicious entries are never installed.
+name: CI
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      JWT_SECRET: ${{ secrets.JWT_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+      - run: npm test --if-present
