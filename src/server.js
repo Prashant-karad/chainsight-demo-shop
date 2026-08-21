@@ -4,6 +4,7 @@ const axios = require("axios");
 const marked = require("marked");
 const jwt = require("jsonwebtoken");
 const moment = require("moment");
+const { ordersCsv } = require("./export");
 
 const app = express();
 app.use(express.json());
@@ -39,6 +40,9 @@ app.post("/login", (req, res) => {
 });
 
 app.get("/health", (req, res) => res.json({ ok: true, at: moment().toISOString() }));
+
+// Large order exports are streamed as CSV.
+app.get("/orders.csv", (req, res) => ordersCsv([{ id: 1, total: 155 }]).pipe(res.type("text/csv")));
 
 if (require.main === module) app.listen(process.env.PORT || 3000);
 module.exports = app;
