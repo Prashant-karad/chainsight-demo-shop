@@ -1,0 +1,11 @@
+# How a team would run ChainSight in its own CI. Manual trigger in this demo repo:
+# here, ChainSight posts its PR checks directly through the GitHub API instead.
+name: ChainSight PR gate (example)
+on: workflow_dispatch
+jobs:
+  supply-chain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - run: echo "pip install chainsight && chainsight diff base-lock.json package-lock.json --fail-on high"
