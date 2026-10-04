@@ -1,7 +1,7 @@
 const express = require("express");
 const _ = require("lodash");
 const axios = require("axios");
-const marked = require("marked");
+const { marked } = require("marked");
 const jwt = require("jsonwebtoken");
 const moment = require("moment");
 const { ordersCsv } = require("./export");
