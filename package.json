@@ -7,7 +7,6 @@
   "dependencies": {
     "express": "4.16.0",
     "lodash": "4.17.15",
-    "event-stream": "3.3.4",
     "jsonwebtoken": "8.5.0",
     "axios": "0.21.0",
     "bufferutil": "4.0.1",
