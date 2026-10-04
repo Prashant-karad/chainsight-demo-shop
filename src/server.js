@@ -3,7 +3,7 @@ const _ = require("lodash");
 const axios = require("axios");
 const marked = require("marked");
 const jwt = require("jsonwebtoken");
-const moment = require("moment");
+const dayjs = require("dayjs");
 const { ordersCsv } = require("./export");
 
 const app = express();
@@ -39,7 +39,7 @@ app.post("/login", (req, res) => {
   res.json({ token });
 });
 
-app.get("/health", (req, res) => res.json({ ok: true, at: moment().toISOString() }));
+app.get("/health", (req, res) => res.json({ ok: true, at: dayjs().toISOString() }));
 
 // Large order exports are streamed as CSV.
 app.get("/orders.csv", (req, res) => ordersCsv([{ id: 1, total: 155 }]).pipe(res.type("text/csv")));
